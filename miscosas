@@ -1,0 +1,139 @@
+/*
+const { DICT_VERSION } = require("@adiwajshing/baileys")
+
+ejemplos
+https://goldfish-app-4pw93.ondigitalocean.app/workspace/767ef8a7-797e-487e-8ed8-ac2105628253/
+
+goto
+https://goldfish-app-4pw93.ondigitalocean.app/workspace/funcion-goto/
+
+Zamphiropolos/Bot-Watsapp-ChatGPT
+https://github.com/Zamphiropolos/Bot-Watsapp-ChatGPT
+
+desplegar en la nube
+https://bot-whatsapp.netlify.app/docs/deploy/cloud/
+patdilet — ayer a las 22:48
+Hola! 
+Cómo publican las variables api_key de openai en aws?
+Estoy siguiendo este paso a paso:
+https://bot-whatsapp.netlify.app/docs/deploy/cloud/
+
+Haga clic en el servicio de Lambda en la consola de AWS.
+
+Haga clic en el botón "Crear función".
+
+Seleccione "Autor desde cero" y escriba un nombre para la función.
+
+Seleccione un tiempo de espera y una memoria para la función.
+
+Haga clic en "Crear función".
+
+En la sección de variables de entorno, agregue una nueva variable de entorno con el nombre de la clave de la API y el valor de la clave secreta. Por ejemplo, si su clave de API es "MY_API_KEY" y su clave secreta es "MY_API_SECRET", puede agregar dos variables de entorno con los siguientes nombres y valores:
+
+css
+Copy code
+MY_API_KEY = [su clave de API]
+MY_API_SECRET = [su clave secreta]
+Guarde la función.
+
+Ahora, puede acceder a las claves de API desde su función de Lambda utilizando las siguientes líneas de código en Node.js:
+javascript
+Copy code
+const apiKey = process.env.MY_API_KEY;
+const apiSecret = process.env.MY_API_SECRET;
+Imagen
+Imagen
+
+--------------------
+const flowLastName = addKeyword(['']).addAnswer(
+  ['Dejeme su número de teléfono y le llamaré lo antes posible.'],
+  { capture: true, buttons: [{ body: ':x: Cancelar solicitud' }] },
+  async (ctx, { flowDynamic, endFlow }) => {
+    if (ctx.body == ':x: Cancelar solicitud') {
+      await flowDynamic([
+        {
+          body: ':x: *Su solicitud de cita ha sido cancelada* :x:',
+          buttons: [{ body: ':arrow_left: Volver al Inicio' }],
+        },
+      ])
+      return endFlow()
+    }
+  }
+);
+
+const flowName = addKeyword(['']).addAnswer(
+  ['También necesito tus dos apellidos'],
+  { capture: true, buttons: [{ body: ':x: Cancelar solicitud' }] },
+  async (ctx, { flowDynamic, endFlow }) => {
+    if (ctx.body == ':x: Cancelar solicitud') {
+      await flowDynamic([
+        {
+          body: ':x: *Su solicitud de cita ha sido cancelada* :x:',
+          buttons: [{ body: ':arrow_left: Volver al Inicio' }],
+        },
+      ])
+      return endFlow()
+    }
+  },
+  [flowLastName]
+);
+
+const flowFormulario = addKeyword(['Hola'])
+  .addAnswer(
+    ['Hola!', 'Escriba su *Nombre* para generar su solicitud'],
+    { capture: true, buttons: [{ body: ':x: Cancelar solicitud' }] },
+    async (ctx, { flowDynamic, endFlow }) => {
+      if (ctx.body == ':x: Cancelar solicitud') {
+        await flowDynamic([
+          {
+            body: ':x: *Su solicitud de cita ha sido cancelada* :x:',
+            buttons: [{ body: ':arrow_left: Volver al Inicio' }],
+          },
+        ])
+        return endFlow()
+      }
+    },
+    [flowName]
+  )
+-------------------------------------
+const flowVCard = addKeyword('vcard').addAnswer(':triangular_flag_on_post::triangular_flag_on_post::triangular_flag_on_post:', null, async (ctx, { provider }) => {
+    const id = ctx.key.remoteJid
+    const templateButtons = [
+        {index: 1, urlButton: {displayText: ':star: Star Baileys on GitHub!', url: 'https://github.com/adiwajshing/Baileys'}},
+        {index: 2, callButton: {displayText: 'Call me!', phoneNumber: '+1 (234) 5678-901'}},
+        {index: 3, quickReplyButton: {displayText: 'This is a reply, just like normal buttons!', id: 'id-like-buttons-message'}},
+    ]    
+    const templateMessage = {
+        text: "Hi it's a template message",
+        footer: 'Hello World',
+        templateButtons: templateButtons
+    }   
+    
+    const abc = await provider.getInstance()
+       
+    await abc.sendMessage(id, templateMessage)
+    console.log('->', abc)
+    return 
+})
+------------------------
+excel o google shet + chatbot
+https://www.youtube.com/watch?v=i1pQNixZqIA
+ZAMPI
+ESTE ES OTRO VIDEO DE SHEET
+https://youtu.be/9tD0YmfGZ1s 
+Y EL FUENTE
+https://github.com/RajKKapadia/Youtube-GoogleSheet-NodeJS/blob/main/src/index.js
+
+actualizar a la ultima VERSION
+npm i @bot-whatsapp/bot@latest @bot-whatsapp/cli@latest @bot-whatsapp/database@latest @bot-whatsapp/provider@latest @bot-whatsapp/portal@latest
+
+para instalar la hoja de google descargar 
+npm i google-spreadsheet --save
+
+Leifer Mendez
+¿Como instalar Chabot en AWS?
+https://www.youtube.com/watch?v=rULeaWRrIMk
+
+codigo cerdo
+https://codefile.io/f/o6Bx899yMcB0X9ILUKrY
+*/

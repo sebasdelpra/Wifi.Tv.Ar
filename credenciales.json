@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "wifitvar",
+    "private_key_id": "695d353400528a3ad0f98250546606f19a0e0760",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCrAfWC81PxvOui\nfIoiet+fpbl3CH8xD6AITWvDzTxlPjGB5scycXQFalb8KXPNMZ8dqsNkWCgZSF3v\nlzOssZ+aIFcgm7fOocXclgtFVqQfsmMz0ZBV9MaV5p0UuD9H7eU1O5qKDQKk5TQV\n85KA/lNCSNyR1nKNuQ11qAVPGkNCgbKCKGMjyWp6yQ9gKISA0hBJjV0SBaF1riZp\nVjaoyRpl7aRkp/0ycxB/BMO1xMwew4Nx1F4EQMmWX4K45R0rCWDD/3crTFtNcaya\nygf/UWBLCOLNQt3ee9p8Qw9SB7fadHa6WiHvzPCgS+5ELRkuejxl89JbNC+mBjpz\ni16rQeM/AgMBAAECggEAEBV7Ffn050OxlfLIuz17UvSvYPa3n9GsZ5uAi0X+bDdR\nSLp/+cqZ8vhxff4YGjCUmqG5BvMTsm0QCLzb6145eLGaAEMlIpYsmfay0K65eRG6\nKuGHBc6j7u1l0NETgpxpdnxIqLtYiFHWeEoUeXVyN0XLGRxmYdYJ4gsPlMUPlm2c\n95R3alA/3VyeQ35+rmxGMDLcObT0H8an0BowY/dqIvkhQwrYiCN3A65v+4ZsQ94y\nxp4pSWpX5m+Cc/bCfPMfKNldYRYaZpNPid3NbB/ClCYAgsJYeFnjgGunV+/aY/lW\nX1zHdAEHvM3aw500EaNIz8s5vh6WDUZsgTU3xtHDgQKBgQDhwn6HcDruzX35jESk\nWQps2SoxbdMbSRVv1QuwFsAhfghLCpZL5Cz+acA/c8VW4kt2Hx1loYzsMhSg9PLf\n+qOZND2EcNVg+lrvL6AemTjczBXhl2ZtsblUWFNvnwDlvjZA3gX1YxMwUAqRwr4p\nlrr9Tdvh0HTWRm9ZID0FZ1JTDwKBgQDB6fdQid92S0JL0F636jDFTx5gciT967Em\nmYYk9ww1HEGKBQIYLguhJyYhKk7f9cNdB5Y/VsHDxqnedvrGllT/DH8SsFpCZSAf\nDT80kuaQSphwUSc6Emn8KPRzht7alwV2yWz52UogF4pO/QhIhKtgMQLHHusIedFI\nVrkgcuKs0QKBgQDd02jWFb2iZYGxkVTlE6R9vYiK1vnGZrJMl06LsF8KybbGXVm+\nqi5XsXs4Hb46l9JD92DAOtOoRbElUmnPEIxtffowR1oyluyA9w/i4PURZurdJhF8\nGVQb/0nEdLzCAXt3k3DRY484On2YKX0GilejizxRjq0u2jiQn2+1/obSmwKBgAs5\nEFA/+oftKSQcJi88xZ/VyWtJj+yGRJV4UzQ2fCViwkRLr+hYWeH00xceTLxXi/wJ\nYV+/FK3RBKnUdwUhVEACqCQbws2O7sH9UUgorGFzf8kYWU3aHPo0IJnDF4jNLsrG\nM6FuOwUKd73ElUMlMon5rDB8EJxH+J3YLxS6sXXRAoGAEecB1oW3IycuyzF5KXHV\nmCaGokcrPLPKu7bzGOSOwRKseyhdRXH8DJJYEPluFUfMkRSBy5Jk0y8zyTTjnlWP\nuqvrV41IZHIWS+4e8mzWjgESUDRWO/oJtKjNvXtiajwLOOV6Y6EOArOdvraUL2U1\n/sQWfGSyucFMYoZSRvtQdrM=\n-----END PRIVATE KEY-----\n",
+    "client_email": "wifitvar@wifitvar.iam.gserviceaccount.com",
+    "client_id": "103869741911124939842",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/wifitvar%40wifitvar.iam.gserviceaccount.com"
+  }
+  
