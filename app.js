@@ -60,12 +60,15 @@ const MYSQL_DB_PORT = '3306'
  * Primero declaras los submenus 1.1 y 2.1, luego el 1 y 2 y al final el principal.
  */
 
+
 const flowSecundario = addKeyword(['000', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
-  
+
+let deuda;
+let STATUS=[];
   //{body:'Lo ves en tu celu y en 3 dispositivos a la vez \n son 110 canales \n Pago anticipado \n '}
   const flowMercadoPago = addKeyword('Pagar con Mercado Pago')
     .addAnswer(
-      ['📟'],    
+      ['📟 demora unos segundos'],    
       { capture: true, buttons: [{body: 'generar el pago'}] },
       async (ctx, {  flowDynamic }) => {
       if (ctx.body == 'generar el pago') 
@@ -77,15 +80,15 @@ const flowSecundario = addKeyword(['000', 'siguiente']).addAnswer(['📄 Aquí t
                   },
                       items: [
                           {
-                              title: 'Mi producto',
-                              unit_price: 100,
+                              title: 'Deuda de WIFI TV',
+                              unit_price: parseFloat(STATUS[telefono].deuda),
                               quantity: 1,
                               currency_id:'ARS'
-                          },
+                          },                        
                       ],
                       };
                   console.log(preference);
-                  mercadopago.preferences
+              await mercadopago.preferences
                       .create(preference)
                       .then(async function(response, resolve){
                               // Este valor reemplazará el string "<%= global.id %>" en tu HTML
@@ -93,16 +96,15 @@ const flowSecundario = addKeyword(['000', 'siguiente']).addAnswer(['📄 Aquí t
                               console.log(global.id);
                       
                           respuesta = response.body.init_point;
-                          await flowDynamic({media: 'https://www.boutiqueautomovil.com.ar/wp-content/uploads/2019/05/logo-mercadopago.png', })
-                          await flowDynamic(`${respuesta}`)                                                                         
-                      
+                          await flowDynamic({media: 'https://www.boutiqueautomovil.com.ar/wp-content/uploads/2019/05/logo-mercadopago.png'})
+                          await flowDynamic(`${respuesta}`)  
               }).catch(function(error){
                   console.log(error);
               });              
       }
      })
      .addAnswer(
-        ['↩'],
+        [`hace clic aquí👇`],
         { capture: false, buttons: [{ body: '⬅️ Volver' }] },
     
         async (ctx, { flowDynamic, endFlow }) => {
@@ -133,8 +135,7 @@ const flowSaldo = addKeyword(['Consulta tu saldo'])
         })
          
     // VER QUE LA MAQUINA TENGA CURL
-    //let cUrl = `curl -H "Accept: application/json" -H "Content-Type: application/json" -H "api-key:0mWiaENxN3lksPDvD5GCT5dm70iaIk89s673TdMLoZoEcwcazZhNjtjJ" -H "api-token:i7sT3vsiiLGo5m7CjJ5LjEaaj0jw7zZl" http://online7.ispcube.com:8080/index.php/customers/{000021}/connections`;
-    let cUrl = `curl -H "Accept: application/json" -H "Content-Type: application/json" -H "api-key:0mWiaENxN3lksPDvD5GCT5dm70iaIk89s673TdMLoZoEcwcazZhNjtjJ" -H "api-token:i7sT3vsiiLGo5m7CjJ5LjEaaj0jw7zZl" http://online7.ispcube.com:8080/index.php/customers`;
+    let cUrl = `curl -H "Accept: application/json" -H "Content-Type: application/json" -H "api-key: iaIk89s3TdMLoZoEivD5GCT5dm76aENxN3lksc0wcazZhNjtjJ0mWPD7" -H "api-token: CEotoscTzhidht35G0Pwo7laz89i0NoD" http://online7.ispcube.com:8080/index.php/customers?idcustomer=${codigoCliente}`;
     
     const util = require('node:util');
     const exec = util.promisify(require('node:child_process').exec);
@@ -155,26 +156,38 @@ const flowSaldo = addKeyword(['Consulta tu saldo'])
             let idAddress    = pepe.indexOf('"address"');
             let idAddressC   = pepe.slice(idAddress+11, idAddress +11 + 50);
                 idAddressC   = idAddressC.slice(0,idAddressC.indexOf('"'));
-            let idExtra1     = pepe.indexOf('"extra1"');
-            let idExtra1C    = pepe.slice(idExtra1+10, idExtra1 +10 + 20)  ;
+            let idExtra1     = pepe.indexOf('"city"');
+            let idExtra1C    = pepe.slice(idExtra1+11, idExtra1 +11 + 20)  ;
                 idExtra1C    = idExtra1C.slice(0,idExtra1C.indexOf('"'));
-            let idExtra2     = pepe.indexOf('"extra2"');
-            let idExtra2C    = pepe.slice(idExtra2+10, idExtra2 +10 + 20)  ;
+            let idExtra2     = pepe.indexOf('"state"');
+            let idExtra2C    = pepe.slice(idExtra2+9, idExtra2 +9 + 20)  ;
                 idExtra2C    = idExtra2C.slice(0,idExtra2C.indexOf('"'));
-
+            let idDeuda      = pepe.indexOf('"debt"',1);
+            let idDeudaC     = pepe.slice(idDeuda+8, idDeuda + 8 + 20)  ;
+                   deuda     = idDeudaC.slice(0,idDeudaC.indexOf('"'));
+              
             xTexto = 
-            `*idCustomer :* ${idcustomerC} \n`+
-            `*Nombre     :* ${idNameC}     \n`+
-            `*Direccion  :* ${idAddressC}  \n` +
-            `*Extra1     :* ${idExtra1C}   \n` +
-            `*Extra2     :* ${idExtra2C}   \n` +  
-            `😎 \n`            
+            `*Nº de cliente:* ${idcustomerC} \n`+
+            ` *Nombre       :* ${idNameC}     \n`+
+            ` *Direccion    :* ${idAddressC}  \n` +
+            ` *Localidad    :* ${idExtra1C}   \n` +
+            ` *Provincia    :* ${idExtra2C}   \n` +  
+            ` *DEUDA        :* $${deuda}    `  
             
-            return flowDynamic(`Los datos segun Nº de cliente son:\n ${xTexto}`)
+telefono = ctx.from
+
+idcustomerC= STATUS[telefono] = {...STATUS[telefono], idcustomerC}  
+
+STATUS[telefono].idcustomerC = idcustomerC
+STATUS[telefono].deuda = deuda
+console.log(STATUS[telefono].deuda)
+
+
+            return flowDynamic(`Los datos obtenidos son:\n ${xTexto}`)
     }
 )
 .addAnswer(
-    ['↩'],
+    [`hace clic aquí👇`],
     { capture: false, buttons: [{ body: '⬅️ Volver' }] },
 
     async (ctx, { flowDynamic, endFlow }) => {
@@ -314,8 +327,7 @@ const getRow = async (celular) => {
                 console.log(row.FechaSolicitud);
                 console.log(row.FechaFinal);
                 
-                dFechaSolicitud = row.FechaSolicitud;
-                console.log(dFechaSolicitud+'---------------------')
+                dFechaSolicitud = row.FechaSolicitud;             
                 tiene = 1;
             }
         };
@@ -382,7 +394,7 @@ console.log(dFechaSolicitud+'===================================')
 )
 
 .addAnswer(
-    ['↩'],
+    [' '],
     { capture: false, buttons: [{ body: '⬅️ Volver' }] },
 
     async (ctx, { flowDynamic, endFlow }) => {
@@ -397,13 +409,11 @@ const flowWifiTvQueEs = addKeyword('¿Que es Wifi TV?')
                 ' ⭐Es TV DIGITAL + *110 CANALES* en HD',
                 ' ⭐Lo ves en el celu',
                 '    y en 3 dispositivos más',
-                ' ⭐Pagas anticipado el costo es de 3.500 $',
-                ' ⭐Podes contratar packs',  
-                '       Futbol son 1.500$ mensual / HBO son 800$ por mes los' ,  
-                '  y lo desactivas al mes siguiente, si queres',  
+                ' ⭐Pagas anticipado el costo es de 3.300 $',
+                ' ⭐Podes contratar packs Futbol $ 1.900 / HBO $ 650 por mes y lo desactivas cuando quieras',  
                 ' ⭐Lo podes usar fuera del país',  
                 ' ⭐Esta plataforma es homologada y certificada por Google, Samsung, Amazone y LG',  
-                ' ⭐funciona con Android TV , TV BOX, STICK ',  
+                ' ⭐Funciona con Android TV , TV BOX, STICK ',  
                 '   si no lo tenes te proveemos un dispositivo que conectas a la tele o te conseguís un Chromecast',  
                 ' ⭐Usas cualquier conexión de internet'  ])
 
