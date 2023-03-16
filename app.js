@@ -31,6 +31,7 @@ const flowInicial = addKeyword(EVENTS.WELCOME).addAnswer('Bienvenido a este BOT 
 const mercadopago = require('mercadopago');
 const { resolve } = require('node:path');
 const { Console } = require('console');
+const { devNull } = require('os')
 
 mercadopago.configure({
     access_token:'TEST-4075010836840184-022218-ef168bef5a580dcc7e0b39186924ed4d-187906500'
@@ -63,6 +64,7 @@ const MYSQL_DB_PORT = '3306'
 
 const flowSecundario = addKeyword(['000', 'siguiente']).addAnswer(['📄 Aquí tenemos el flujo secundario'])
 
+let telefono;
 let deuda;
 let STATUS=[];
   //{body:'Lo ves en tu celu y en 3 dispositivos a la vez \n son 110 canales \n Pago anticipado \n '}
@@ -70,38 +72,40 @@ let STATUS=[];
     .addAnswer(
       ['📟 demora unos segundos'],    
       { capture: true, buttons: [{body: 'generar el pago'}] },
-      async (ctx, {  flowDynamic }) => {
+      async (ctx, {  flowDynamic, endFlow }) => {
       if (ctx.body == 'generar el pago') 
-      { 
-          let respuesta;
-              let preference = {
-                  back_urls: { 
-                      success: 'http://localhost:3000/success'
-                  },
-                      items: [
-                          {
-                              title: 'Deuda de WIFI TV',
-                              unit_price: parseFloat(STATUS[telefono].deuda),
-                              quantity: 1,
-                              currency_id:'ARS'
-                          },                        
-                      ],
-                      };
-                  console.log(preference);
-              await mercadopago.preferences
-                      .create(preference)
-                      .then(async function(response, resolve){
-                              // Este valor reemplazará el string "<%= global.id %>" en tu HTML
-                              global.id = response.body.id;
-                              console.log(global.id);
-                      
-                          respuesta = response.body.init_point;
-                          await flowDynamic({media: 'https://www.boutiqueautomovil.com.ar/wp-content/uploads/2019/05/logo-mercadopago.png'})
-                          await flowDynamic(`${respuesta}`)  
-              }).catch(function(error){
-                  console.log(error);
-              });              
-      }
+        {            
+          { 
+            let respuesta;
+                let preference = {
+                    back_urls: { 
+                        success: 'http://localhost:3000/success'
+                    },
+                        items: [
+                            {
+                                title: 'Deuda de WIFI TV',
+                                unit_price: parseFloat(STATUS[telefono].deuda),
+                                quantity: 1,
+                                currency_id:'ARS'
+                            },                        
+                        ],
+                        };
+                    console.log(preference);
+                await mercadopago.preferences
+                        .create(preference)
+                        .then(async function(response, resolve){
+                                // Este valor reemplazará el string "<%= global.id %>" en tu HTML
+                                global.id = response.body.id;
+                                console.log(global.id);
+                        
+                            respuesta = response.body.init_point;
+                            await flowDynamic({media: 'https://www.boutiqueautomovil.com.ar/wp-content/uploads/2019/05/logo-mercadopago.png'})
+                            await flowDynamic(`${respuesta}`)  
+                }).catch(function(error){
+                    console.log(error);
+                });              
+        }
+        }
      })
      .addAnswer(
         [`hace clic aquí👇`],
@@ -128,62 +132,75 @@ const flowSaldo = addKeyword(['Consulta tu saldo'])
         const onlyNumbers = stringWithNumbers.replace(/[^0-9]+/g, ""); // esto retorna '1234'
         codigoCliente = onlyNumbers.padStart(6,'0')         
         codigoCliente = codigoCliente.slice(0,6)
-        
+            
+        console.log(codigoCliente + '<- Cliente')
         if (ctx.body == '❌ Cancelar solicitud' || codigoCliente == '000000')
          return endFlow({body: '❌ Su solicitud ha sido cancelada', 
              buttons:[{body:'⬅️ Volver' }]                     
         })
-         
+
     // VER QUE LA MAQUINA TENGA CURL
     let cUrl = `curl -H "Accept: application/json" -H "Content-Type: application/json" -H "api-key: iaIk89s3TdMLoZoEivD5GCT5dm76aENxN3lksc0wcazZhNjtjJ0mWPD7" -H "api-token: CEotoscTzhidht35G0Pwo7laz89i0NoD" http://online7.ispcube.com:8080/index.php/customers?idcustomer=${codigoCliente}`;
     
     const util = require('node:util');
     const exec = util.promisify(require('node:child_process').exec);
 
+    console.log(cUrl)
+
             const { stdout, stderr } = await exec(cUrl);
             //console.log('stdout:', stdout);s
             //console.error('stderr:', stderr);
             let pepe  = stdout.toString(); 
-            pepe=pepe.replace('[','').replace(']','')
+            console.log(pepe);
+            console.log(pepe.length);
+          //  pepe=pepe.replace('[','').replace(']','')
 
-            var regex = /(\d+)/g;
+            if ( pepe.length < 60 ) {
+                 await flowDynamic('NO SE ENCONTRO INFORMACION DE ESE NUMERO DE CLIENTE')
+                 return endFlow()    
+            }
+            else
+            {
+                var regex = /(\d+)/g;
 
-            let idcustomerN  = pepe.indexOf('"idcustomer"');
-            let idcustomerC  = pepe.slice(idcustomerN+14, idcustomerN+14 + 6)  ;
-            let idName       = pepe.indexOf('"name"');
-            let idNameC      = pepe.slice(idName+8, idName +8 + 50)  ;
-                idNameC      = idNameC.slice(0,idNameC.indexOf('"'));
-            let idAddress    = pepe.indexOf('"address"');
-            let idAddressC   = pepe.slice(idAddress+11, idAddress +11 + 50);
-                idAddressC   = idAddressC.slice(0,idAddressC.indexOf('"'));
-            let idExtra1     = pepe.indexOf('"city"');
-            let idExtra1C    = pepe.slice(idExtra1+11, idExtra1 +11 + 20)  ;
-                idExtra1C    = idExtra1C.slice(0,idExtra1C.indexOf('"'));
-            let idExtra2     = pepe.indexOf('"state"');
-            let idExtra2C    = pepe.slice(idExtra2+9, idExtra2 +9 + 20)  ;
-                idExtra2C    = idExtra2C.slice(0,idExtra2C.indexOf('"'));
-            let idDeuda      = pepe.indexOf('"debt"',1);
-            let idDeudaC     = pepe.slice(idDeuda+8, idDeuda + 8 + 20)  ;
-                   deuda     = idDeudaC.slice(0,idDeudaC.indexOf('"'));
-              
-            xTexto = 
-            `*Nº de cliente:* ${idcustomerC} \n`+
-            ` *Nombre       :* ${idNameC}     \n`+
-            ` *Direccion    :* ${idAddressC}  \n` +
-            ` *Localidad    :* ${idExtra1C}   \n` +
-            ` *Provincia    :* ${idExtra2C}   \n` +  
-            ` *DEUDA        :* $${deuda}    `  
-            
-telefono = ctx.from
+                let idcustomerN  = pepe.indexOf('"idcustomer"');
+                let idcustomerC  = pepe.slice(idcustomerN+14, idcustomerN+14 + 6)  ;
+                let idName       = pepe.indexOf('"name"');
+                let idNameC      = pepe.slice(idName+8, idName +8 + 50)  ;
+                    idNameC      = idNameC.slice(0,idNameC.indexOf('"'));
+                let idAddress    = pepe.indexOf('"address"');
+                let idAddressC   = pepe.slice(idAddress+11, idAddress +11 + 50);
+                    idAddressC   = idAddressC.slice(0,idAddressC.indexOf('"'));
+                let idExtra1     = pepe.indexOf('"city"');
+                let idExtra1C    = pepe.slice(idExtra1+11, idExtra1 +11 + 20)  ;
+                    idExtra1C    = idExtra1C.slice(0,idExtra1C.indexOf('"'));
+                let idExtra2     = pepe.indexOf('"state"');
+                let idExtra2C    = pepe.slice(idExtra2+9, idExtra2 +9 + 20)  ;
+                    idExtra2C    = idExtra2C.slice(0,idExtra2C.indexOf('"'));
+                let idDeuda      = pepe.indexOf('"debt"',1);
+                let idDeudaC     = pepe.slice(idDeuda+8, idDeuda + 8 + 20)  ;
+                    deuda     = idDeudaC.slice(0,idDeudaC.indexOf('"'));
+                
+                xTexto = 
+                `*Nº de cliente:* ${idcustomerC} \n`+
+                ` *Nombre       :* ${idNameC}     \n`+
+                ` *Direccion    :* ${idAddressC}  \n` +
+                ` *Localidad    :* ${idExtra1C}   \n` +
+                ` *Provincia    :* ${idExtra2C}   \n` +  
+                ` *DEUDA        :* $${deuda}    `  
+                
+        
+                telefono = ctx.from
 
-idcustomerC= STATUS[telefono] = {...STATUS[telefono], idcustomerC}  
+                idcustomerC = STATUS[telefono] = {...STATUS[telefono], idcustomerC}  
 
-STATUS[telefono].idcustomerC = idcustomerC
-STATUS[telefono].deuda = deuda
-console.log(STATUS[telefono].deuda)
-
-
-            return flowDynamic(`Los datos obtenidos son:\n ${xTexto}`)
+                STATUS[telefono].idcustomerC = idcustomerC
+                STATUS[telefono].deuda = deuda
+                console.log(STATUS[telefono].deuda)
+        
+                await flowDynamic(`Los datos obtenidos son:\n ${xTexto}`)
+                return endFlow()    
+        }
     }
 )
 .addAnswer(
@@ -294,7 +311,7 @@ const flowDemo = addKeyword(['Solicitar DEMO'])
     })
     correo = ctx.body      
     celular = ctx.from
-
+    
 //
  
 //primero ve si existe si es asi alerta que ya solicito la demo

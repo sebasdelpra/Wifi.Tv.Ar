@@ -2,58 +2,10 @@
   key: {
     remoteJid: '5493794331417@s.whatsapp.net',
     fromMe: false,
-    id: 'D2F1D8C9554AB7EBB12B8D266F3DFAF1',
+    id: '9A6BD76458E0BD0E81D6F050BD4BC3CC',
     participant: undefined
   },
-  messageTimestamp: 1678757214,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: '¿Que es Wifi TV? 📡💻',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: '¿Que es Wifi TV? 📡💻',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '0CEAFE29ADE2086FF8611523156AF95B',
-    participant: undefined
-  },
-  messageTimestamp: 1678757224,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: 'Como suscribirme',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Como suscribirme',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '1DD593625C80CDF158CE58794DE91B05',
-    participant: undefined
-  },
-  messageTimestamp: 1678757227,
+  messageTimestamp: 1678930796,
   pushName: 'Sebastian del Prado',
   message: Message {
     messageContextInfo: MessageContextInfo {
@@ -74,10 +26,10 @@
   key: {
     remoteJid: '5493794331417@s.whatsapp.net',
     fromMe: false,
-    id: '2AA248552A93A4549D8AAC9B1467C6FD',
+    id: 'B316A5A1B1A0A95BD0FEDC2148935090',
     participant: undefined
   },
-  messageTimestamp: 1678757229,
+  messageTimestamp: 1678930799,
   pushName: 'Sebastian del Prado',
   message: Message {
     messageContextInfo: MessageContextInfo {
@@ -98,379 +50,10 @@
   key: {
     remoteJid: '5493794331417@s.whatsapp.net',
     fromMe: false,
-    id: '7CFD1273ACE1212AEEE6D605E6768D75',
+    id: '90D88D26E78CD739C8EC2B0DC15AB504',
     participant: undefined
   },
-  messageTimestamp: 1678757231,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: 'Consulta tu saldo',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Consulta tu saldo',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '97DC7C95A49663BDBF8BE2E10F2BA548',
-    participant: undefined
-  },
-  messageTimestamp: 1678757236,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    conversation: '2',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '2',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '28CBB3ABE3FFA7E937101069F3CD707A',
-    participant: undefined
-  },
-  messageTimestamp: 1678757242,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: '⬅️ Volver',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: '⬅️ Volver',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '5F01B83C7498B303CBD9915741F9FDC4',
-    participant: undefined
-  },
-  messageTimestamp: 1678757249,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-1',
-      selectedDisplayText: 'Facturación ✉️',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Facturación ✉️',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '33EB2B5D13C52330411992DE1767E52E',
-    participant: undefined
-  },
-  messageTimestamp: 1678757252,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: 'Consulta tu saldo',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Consulta tu saldo',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '281539A8F9CEC0B855DC922E9519C358',
-    participant: undefined
-  },
-  messageTimestamp: 1678757262,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    conversation: '9',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '9',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: 'A4EA63AE48488C721EAA40A7AFB24BBD',
-    participant: undefined
-  },
-  messageTimestamp: 1678757269,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: '⬅️ Volver',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: '⬅️ Volver',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '96104BB5BC7A6E37CC65283854D2A94D',
-    participant: undefined
-  },
-  messageTimestamp: 1678757272,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: '¿Que es Wifi TV? 📡💻',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: '¿Que es Wifi TV? 📡💻',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: 'F62A0AB10A7A93E2E160CB44D1DA1F2E',
-    participant: undefined
-  },
-  messageTimestamp: 1678757275,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-1',
-      selectedDisplayText: 'Solicitar DEMO',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Solicitar DEMO',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '89B9FCD5787C003EA87163A5355FC593',
-    participant: undefined
-  },
-  messageTimestamp: 1678757277,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: '❌ Cancelar solicitud',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: '❌ Cancelar solicitud',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '403A361114A28CDEE0DB9D6401D764A7',
-    participant: undefined
-  },
-  messageTimestamp: 1678757279,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: '⬅️ Volver',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: '⬅️ Volver',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '0BB4BEB9410AD870F03B2C1701D9ABE1',
-    participant: undefined
-  },
-  messageTimestamp: 1678757281,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-1',
-      selectedDisplayText: 'Facturación ✉️',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Facturación ✉️',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: 'F71B7DC4A4441D2CD73DE8EC4D03A046',
-    participant: undefined
-  },
-  messageTimestamp: 1678757284,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: 'Consulta tu saldo',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Consulta tu saldo',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '288871593E15C3741D8B593ECB8DC801',
-    participant: undefined
-  },
-  messageTimestamp: 1678757289,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    conversation: '5',
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    }
-  },
-  body: '5',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: 'EEA0C4F11188F4002FB61339DAADA22E',
-    participant: undefined
-  },
-  messageTimestamp: 1678757293,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: '⬅️ Volver',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: '⬅️ Volver',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: 'D4B91D287D628C36D7095E64440DEF7F',
-    participant: undefined
-  },
-  messageTimestamp: 1678757296,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-1',
-      selectedDisplayText: 'Facturación ✉️',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Facturación ✉️',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '10D53972AA9A5167D2BB638878D1B749',
-    participant: undefined
-  },
-  messageTimestamp: 1678757299,
+  messageTimestamp: 1678930802,
   pushName: 'Sebastian del Prado',
   message: Message {
     messageContextInfo: MessageContextInfo {
@@ -491,10 +74,10 @@
   key: {
     remoteJid: '5493794331417@s.whatsapp.net',
     fromMe: false,
-    id: '5056EA96F306C801EC2EB728827C32F1',
+    id: '2360EFCA8247C05D09EB92D48D1E7F0F',
     participant: undefined
   },
-  messageTimestamp: 1678757302,
+  messageTimestamp: 1678930805,
   pushName: 'Sebastian del Prado',
   message: Message {
     messageContextInfo: MessageContextInfo {
@@ -509,29 +92,5 @@
     }
   },
   body: 'generar el pago',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '4EDF4176FCF594664A31F55236B38B17',
-    participant: undefined
-  },
-  messageTimestamp: 1678757328,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: '⬅️ Volver',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: '⬅️ Volver',
   from: '5493794331417'
 }
