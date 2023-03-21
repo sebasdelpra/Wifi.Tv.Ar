@@ -1,12 +1,312 @@
 [handleMsg]:  {
   key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
+    remoteJid: '5493755281870@s.whatsapp.net',
     fromMe: false,
-    id: '9A6BD76458E0BD0E81D6F050BD4BC3CC',
+    id: '1C601523198D20E0486AE95A3500F20A',
     participant: undefined
   },
-  messageTimestamp: 1678930796,
+  messageTimestamp: 1679359288,
+  pushName: 'raul tomepose',
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '5493755281870'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493794331417@s.whatsapp.net',
+    fromMe: false,
+    id: 'B8655533540834E4AFFA8AC08D93F604',
+    participant: undefined
+  },
+  messageTimestamp: 1679359289,
   pushName: 'Sebastian del Prado',
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '5493794331417'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493755281870@s.whatsapp.net',
+    fromMe: false,
+    id: '87DEFFAC6690F7FA5AE2EFCE3391D276',
+    participant: undefined
+  },
+  messageTimestamp: 1679359322,
+  pushName: 'raul tomepose',
+  message: Message {
+    conversation: 'Listas',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Listas',
+  from: '5493755281870'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493794331417@s.whatsapp.net',
+    fromMe: false,
+    id: '5D8BC79ADB70C885EC526A7720B87C14',
+    participant: undefined
+  },
+  messageTimestamp: 1679359323,
+  pushName: 'Sebastian del Prado',
+  message: Message {
+    conversation: 'Listas',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Listas',
+  from: '5493794331417'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493755281870@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0B239FD1E1B7992BDFB',
+    participant: undefined
+  },
+  messageTimestamp: 1679359487,
+  pushName: 'raul tomepose',
+  message: Message {
+    conversation: 'hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hola',
+  from: '5493755281870'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493755281870@s.whatsapp.net',
+    fromMe: false,
+    id: '3AAF78F8E6B0CBB03B956E2325DE93DD',
+    participant: undefined
+  },
+  messageTimestamp: 1679359521,
+  pushName: 'raul tomepose',
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '5493755281870'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493755281870@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB04984F0D9BB7D3EBC52',
+    participant: undefined
+  },
+  messageTimestamp: 1679359546,
+  pushName: 'raul tomepose',
+  message: Message {
+    conversation: 'listas',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'listas',
+  from: '5493755281870'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493794331417@s.whatsapp.net',
+    fromMe: false,
+    id: 'C4C33CD4154922BF71170F4AFD0ECA9E',
+    participant: undefined
+  },
+  messageTimestamp: 1679359642,
+  pushName: 'Sebastian del Prado',
+  message: Message {
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    },
+    listResponseMessage: ListResponseMessage {
+      title: 'Seba y Pato',
+      listType: 1,
+      singleSelectReply: [SingleSelectReply],
+      contextInfo: [ContextInfo]
+    }
+  },
+  body: 'V06',
+  from: '5493794331417'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493755281870@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0AEC4F5EA037815F4D4',
+    participant: undefined
+  },
+  messageTimestamp: 1679359658,
+  pushName: 'raul tomepose',
+  message: Message {
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    },
+    listResponseMessage: ListResponseMessage {
+      title: 'Instagram',
+      listType: 1,
+      singleSelectReply: [SingleSelectReply],
+      contextInfo: [ContextInfo]
+    }
+  },
+  body: 'Instagram',
+  from: '5493755281870'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493755281870@s.whatsapp.net',
+    fromMe: false,
+    id: '3EB0BC6020E36780D47D7E',
+    participant: undefined
+  },
+  messageTimestamp: 1679359719,
+  pushName: 'raul tomepose',
+  message: Message {
+    conversation: 'hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'hola',
+  from: '5493755281870'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493794331417@s.whatsapp.net',
+    fromMe: false,
+    id: '56C7A05843E4DFBF20AFB45A3D5BC7A9',
+    participant: undefined
+  },
+  messageTimestamp: 1679359862,
+  pushName: 'Sebastian del Prado',
+  message: Message {
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    },
+    listResponseMessage: ListResponseMessage {
+      title: 'Sebastian ',
+      listType: 1,
+      singleSelectReply: [SingleSelectReply],
+      contextInfo: [ContextInfo]
+    }
+  },
+  body: 'V04',
+  from: '5493794331417'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493755281870@s.whatsapp.net',
+    fromMe: false,
+    id: 'A00FE6DF3E474A9DFDEC76DC2A292CF7',
+    participant: undefined
+  },
+  messageTimestamp: 1679359878,
+  pushName: 'raul tomepose',
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '5493755281870'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493755268871@s.whatsapp.net',
+    fromMe: false,
+    id: '11C0A2470C4E191493C3D0666E3FA05E',
+    participant: undefined
+  },
+  messageTimestamp: 1679360219,
+  pushName: 'Rose',
+  messageStubType: 2,
+  messageStubParameters: [ 'Message absent from node' ],
+  body: undefined,
+  from: '5493755268871'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493755268871@s.whatsapp.net',
+    fromMe: false,
+    id: '11C0A2470C4E191493C3D0666E3FA05E',
+    participant: undefined
+  },
+  messageTimestamp: 1679360220,
+  pushName: 'Rose',
+  message: Message {
+    extendedTextMessage: ExtendedTextMessage {
+      text: 'Hola',
+      previewType: 0,
+      contextInfo: [ContextInfo],
+      inviteLinkGroupTypeV2: 0
+    },
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '5493755268871'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493786404839@s.whatsapp.net',
+    fromMe: false,
+    id: '3ADA730029C852DCB7C5',
+    participant: undefined
+  },
+  messageTimestamp: 1679360649,
+  pushName: 'BELLA DONNA',
+  message: Message {
+    conversation: 'Hola',
+    messageContextInfo: MessageContextInfo {
+      deviceListMetadata: [DeviceListMetadata],
+      deviceListMetadataVersion: 2
+    }
+  },
+  body: 'Hola',
+  from: '5493786404839'
+}
+[handleMsg]:  {
+  key: {
+    remoteJid: '5493786404839@s.whatsapp.net',
+    fromMe: false,
+    id: '3A1136778EB345873154',
+    participant: undefined
+  },
+  messageTimestamp: 1679360964,
+  pushName: 'BELLA DONNA',
   message: Message {
     messageContextInfo: MessageContextInfo {
       deviceListMetadata: [DeviceListMetadata],
@@ -14,83 +314,11 @@
     },
     buttonsResponseMessage: ButtonsResponseMessage {
       selectedButtonId: 'id-btn-0',
-      selectedDisplayText: '⬅️ Volver',
+      selectedDisplayText: '¿Que es Wifi TV? 📡💻',
       contextInfo: [ContextInfo],
       type: 1
     }
   },
-  body: '⬅️ Volver',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: 'B316A5A1B1A0A95BD0FEDC2148935090',
-    participant: undefined
-  },
-  messageTimestamp: 1678930799,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-1',
-      selectedDisplayText: 'Facturación ✉️',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Facturación ✉️',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '90D88D26E78CD739C8EC2B0DC15AB504',
-    participant: undefined
-  },
-  messageTimestamp: 1678930802,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-1',
-      selectedDisplayText: 'Pagar con Mercado Pago',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'Pagar con Mercado Pago',
-  from: '5493794331417'
-}
-[handleMsg]:  {
-  key: {
-    remoteJid: '5493794331417@s.whatsapp.net',
-    fromMe: false,
-    id: '2360EFCA8247C05D09EB92D48D1E7F0F',
-    participant: undefined
-  },
-  messageTimestamp: 1678930805,
-  pushName: 'Sebastian del Prado',
-  message: Message {
-    messageContextInfo: MessageContextInfo {
-      deviceListMetadata: [DeviceListMetadata],
-      deviceListMetadataVersion: 2
-    },
-    buttonsResponseMessage: ButtonsResponseMessage {
-      selectedButtonId: 'id-btn-0',
-      selectedDisplayText: 'generar el pago',
-      contextInfo: [ContextInfo],
-      type: 1
-    }
-  },
-  body: 'generar el pago',
-  from: '5493794331417'
+  body: '¿Que es Wifi TV? 📡💻',
+  from: '5493786404839'
 }

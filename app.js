@@ -1,10 +1,11 @@
 const { createBot, createProvider, createFlow, addKeyword,  EVENTS} = require('@bot-whatsapp/bot')
-
-
-
+ 
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
+const express = require('express')
+const axios = require('axios')
+
 const MySQLAdapter = require('@bot-whatsapp/database/mysql')
 const { xml2json } = require('xml-js');
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -25,7 +26,10 @@ const doc = new GoogleSpreadsheet(RESPONSES_SHEET_ID);
 const CREDENTIALS = JSON.parse(fs.readFileSync('./credenciales.json'));
 //GOOGLE SHEET FINAL
 const flowInicial = addKeyword(EVENTS.WELCOME).addAnswer('Bienvenido a este BOT para acceder al menu escribe *HOLA*')
-
+.addAnswer(`👋¡Saludos`, {delay:2000}, async (ctx,{flowDynamic}) => {
+    Nombres=ctx.pushName     
+   await flowDynamic(`¡Hola ${Nombres}, te voy a explicar todo lo que necesites sobre este servicio`)   
+})
 //----------------------------------------------------------------------------------------
 // SDK de Mercado Pago
 const mercadopago = require('mercadopago');
@@ -67,15 +71,32 @@ const flowSecundario = addKeyword(['000', 'siguiente']).addAnswer(['📄 Aquí t
 let telefono;
 let deuda;
 let STATUS=[];
-  //{body:'Lo ves en tu celu y en 3 dispositivos a la vez \n son 110 canales \n Pago anticipado \n '}
+
+
+ // const flowcuentas = addKeyword(['Mediante depósito o transferencia', 'Cuentas']).addAnswer(
+  //  ['Puede demorar un momento\n luego acceda al link generado'],//
+ //   {media:'https://www.boutiqueautomovil.com.ar/wp-content/uploads/2019/05/logo-mercadopago.png'})
+ //   .addAnswer('selecciona una de estas opciones',{buttons:[{body:'Ya he realizado mi pago, adjunto foto'},{body:'Tengo unas preguntas'}]},null,[tengoPreguntas])
+
+
   const flowMercadoPago = addKeyword('Pagar con Mercado Pago')
     .addAnswer(
-      ['📟 demora unos segundos'],    
-      { capture: true, buttons: [{body: 'generar el pago'}] },
+        ['Puede demorar un momento'],      
+        {media:'https://www.boutiqueautomovil.com.ar/wp-content/uploads/2019/05/logo-mercadopago.png'}        
+    )
+    .addAnswer('luego acceda al link generado ',     
+       
+      { capture: true, buttons: [{body: '👉generar el pago👈'}] },
       async (ctx, {  flowDynamic, endFlow }) => {
-      if (ctx.body == 'generar el pago') 
+      if (ctx.body == '👉generar el pago👈') 
         {            
-          { 
+            if (deuda == null || deuda === undefined || deuda == 0 )
+            {
+                await flowDynamic('El importe a pagar no puede ser cero\nacceda antes a \n*Consultar mi saldo*')  
+                return endFlow()  
+            }
+            else
+            { 
             let respuesta;
                 let preference = {
                     back_urls: { 
@@ -99,13 +120,13 @@ let STATUS=[];
                                 console.log(global.id);
                         
                             respuesta = response.body.init_point;
-                            await flowDynamic({media: 'https://www.boutiqueautomovil.com.ar/wp-content/uploads/2019/05/logo-mercadopago.png'})
+                           // await flowDynamic({media: 'https://www.boutiqueautomovil.com.ar/wp-content/uploads/2019/05/logo-mercadopago.png'})
                             await flowDynamic(`${respuesta}`)  
                 }).catch(function(error){
                     console.log(error);
                 });              
         }
-        }
+        }    
      })
      .addAnswer(
         [`hace clic aquí👇`],
@@ -121,7 +142,7 @@ let STATUS=[];
 let codigoCliente;
 let xTexto;
 
-const flowSaldo = addKeyword(['Consulta tu saldo'])  
+const flowSaldo = addKeyword(['Consultar mi saldo'])  
 .addAnswer(
     ['Ingresar numero de socio, ' ,'Buscar en facturas anteriores'],
     { capture: true, buttons: [{ body: '❌ Cancelar solicitud' }] },
@@ -215,9 +236,9 @@ const flowSaldo = addKeyword(['Consulta tu saldo'])
  
 
 const flowFacturacion = addKeyword(['Facturación'])    
-    .addAnswer('Elegí una de las siguientes opciones para que podamos ayudarte', 
+    .addAnswer('¿Que quieres hacer?.', 
         {buttons : [
-            {body:'Consulta tu saldo'}, 
+            {body:'Consultar mi saldo'}, 
             {body:'Pagar con Mercado Pago'},            
         ]
     }
@@ -230,8 +251,52 @@ const flowFacturacion = addKeyword(['Facturación'])
  
      async (ctx, { flowDynamic, endFlow }) => {
          if (ctx.body == '⬅️ Volver')
-          return endFlow()          
-     }
+           return endFlow()          
+     
+        celular = ctx.from      
+        const updateRow = async (celular) => {
+
+            // use service account creds
+            await doc.useServiceAccountAuth({
+                client_email: CREDENTIALS.client_email,
+                private_key: CREDENTIALS.private_key
+            });
+
+            // load the documents info
+            await doc.loadInfo();
+
+            // Index of the sheet
+            let sheet = doc.sheetsByIndex[0];
+
+            // Get all the rows
+            let rows = await sheet.getRows();
+
+               // for (let index = 0; index < rows.length; index++) {   
+               //     const row = rows[index];
+               //     if (row.Telefono == celular) {         
+               //         console.log(row.Telefono);
+               //        console.log(row.Correo);
+               //         console.log(row.NombreApellido);
+               //         console.log(row.CorreoDemo);            
+               //         console.log(row.FechaSolicitud);
+               //         console.log(row.FechaFinal);
+               //         
+               //         dFechaSolicitud = row.FechaSolicitud;             
+               //         tiene = 1;
+               //     }
+               // };
+               for (let index = 0; index < rows.length; index++) {
+                const row = rows[index];
+                if (row[keyValue] === oldValue) {
+                    rows[index][keyValue] = newValue;
+                    await rows[index].save();
+                    break; 
+                }
+            };
+        };
+    await updateRow(celular);
+    }
+    
  )
   
  const flowHBO = addKeyword('Pack HBO')        
@@ -348,7 +413,6 @@ const getRow = async (celular) => {
                 tiene = 1;
             }
         };
-    //await delay(1500)
 };
 
 const addRow = async (rows) => {
@@ -370,17 +434,24 @@ const addRow = async (rows) => {
     };
 
     // crea un nuevo objeto `Date`
-    var today = new Date(); 
-    // obtener la fecha y la hora
-    var now = today.toLocaleString();
+    //var today = new Date(); 
+   // var today = new Date().toJSON().slice(0,24).split('-').reverse().join('/')
+   var today = new Date().toLocaleString('en-GB',{hour12: false});
+   console.log(today)
 
+   today=today.replace(',',' ') 
+   console.log(today)
+   
+    // obtener la fecha y la hora
+    //var now = today.toLocaleString();
+    
     let rows = [
         {
             Telefono: `${celular}`,
             Correo: `${correo}` ,
             NombreApellido: `${apellidoynombre}`,    
             CorreoDemo: '',
-            FechaSolicitud: now,
+            FechaSolicitud: today,
             FechaFinal: ''
         }
 ];
@@ -407,7 +478,7 @@ console.log(dFechaSolicitud+'===================================')
             \n- el dia: *${dFechaSolicitud}*
             \ndesde este celular no puedo otorgarte otra, lo siento `)
         }   
-}    
+    }    
 )
 
 .addAnswer(
@@ -441,13 +512,11 @@ const flowWifiTvQueEs = addKeyword('¿Que es Wifi TV?')
         {body:'Contratar paquetes'}
    ]
    })
- 
-   
-      
+  
     
 const flowPrincipal = addKeyword(['0','hola', 'buenas', 'volver','inicio','⬅️ Volver al Inicio'])
     .addAnswer('🙌 Hola bienvenido a  *Wifi Tv Bot*')    
-    .addAnswer('Elegí una de las siguientes opciones para que podamos ayudarte', 
+    .addAnswer(['Elegí una de las siguientes opciones para que podamos ayudarte','*NOTA:* Solo preciona los botones'], 
         {buttons : [
             {body:'¿Que es Wifi TV? 📡💻'}, 
             {body:'Facturación ✉️'},
@@ -456,18 +525,85 @@ const flowPrincipal = addKeyword(['0','hola', 'buenas', 'volver','inicio','⬅�
     }
  )
 
+ 
+//------------------------------
+const flowVCard = addKeyword('listas').addAnswer('🚩🚩🚩', null, async (ctx, { provider }) => {
+    const id = ctx.key.remoteJid // send a list message!
+const sections = [
+    {
+	title: "*REDES*",
+	rows: [
+	    {title: "Instagram", rowId: "Instagram"},
+	    {title: "Facebook",  rowId: "Facebook" },
+        {title: "Whatshap",  rowId: "Whatshap", description: "This is a description"}
+	]
+    },
+   {
+	title: "MEDIOS",
+	rows: [
+	    {title: "Radio", rowId: "Radio"},
+	    {title: "Television", rowId: "Television"},
+        {title: "Folleteria", rowId: "Folleteria"}
+	]
+    },
+    {
+    title: "VENDEDORES",
+    rows: [
+        {title: "Roy",         rowId: "V01"},
+        {title: "Beto",        rowId: "V02"},
+        {title: "Lito",        rowId: "V03"},
+        {title: "Sebastian ",  rowId: "V04"},
+        {title: "Felix",       rowId: "V05"},   
+        {title: "Seba y Pato", rowId: "V06"}            
+    ]
+    },
+]
+
+
+const listMessage = {
+    text: "  ",
+    footer: "Sin esto no podremos avanzar",
+    title: "¿Como te enteraste del servicio?",
+    buttonText: "👉Presione aqui👈",
+    sections
+  }
+  
+  
+      const abc = await provider.getInstance()
+      
+      
+      await abc.sendMessage(id, listMessage)
+      console.log('->', listMessage)
+      return 
+  })
+
+//------------------------------
+
 
 const main = async () => {
     const adapterDB = new MockAdapter()   
 
-    const adapterFlow = createFlow([flowInicial,flowPrincipal, flowWifiTvQueEs,flowDemo,flowSuscripcion,flowPaquetes,flowFacturacion, flowSaldo,flowMercadoPago,flowFutbol,flowHBO,flowRepresentante])
+    const adapterFlow = createFlow([flowInicial,
+                                    flowPrincipal, 
+                                    flowWifiTvQueEs,
+                                    flowDemo,
+                                    flowSuscripcion,
+                                    flowPaquetes,
+                                    flowFacturacion,
+                                    flowSaldo,
+                                    flowMercadoPago,
+                                    flowFutbol,
+                                    flowHBO,
+                                    flowRepresentante,
+                                    flowVCard])
     const adapterProvider = createProvider(BaileysProvider)
+    
     createBot({
         flow: adapterFlow,
         provider: adapterProvider,
         database: adapterDB,
     })
      
-    QRPortalWeb()
+    QRPortalWeb() 
 }
 main()
